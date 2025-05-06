@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Construct the assistant's instructions
-    let instructions = `**Role:** You are the official AI Chat Assistant for ${restaurantName}, a restaurant known for its ${cuisineType}. Your persona should be [e.g., warm, friendly, and efficient].
+    const instructions = `**Role:** You are the official AI Chat Assistant for ${restaurantName}, a restaurant known for its ${cuisineType}. Your persona should be [e.g., warm, friendly, and efficient].
 
 **Core Responsibilities:**
 1.  **Answer Questions:** Provide accurate information about the restaurant based ONLY on the details provided below. Common topics include: opening hours, location/address, menu items, specials, parking, and general ambiance.

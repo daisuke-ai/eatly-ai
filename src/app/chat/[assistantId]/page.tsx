@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area"; // For scrollable chat messages
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"; // For errors
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // Import Avatar
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Import Avatar
 import { Loader2 } from 'lucide-react'; // Import Loader icon
 
 interface Message {
@@ -74,8 +74,13 @@ export default function ChatPage() {
       const assistantResponse: Message = { role: 'assistant', content: result.response };
       setMessages(prev => [...prev, assistantResponse]);
 
-    } catch (err: any) {
-      setError(err.message || 'An error occurred.');
+    } catch (err) {
+      // Type check the error
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unknown error occurred while sending the message.');
+      }
       // Optional: Remove the user's message if the API call failed
       // setMessages(prev => prev.slice(0, -1));
     } finally {

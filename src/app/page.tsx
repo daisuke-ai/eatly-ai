@@ -85,14 +85,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [formMessage, setFormMessage] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
-  const [createdAssistantId, setCreatedAssistantId] = useState<string | null>(null);
 
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setIsLoading(true);
     setFormMessage(null);
     setIsSuccess(null);
-    setCreatedAssistantId(null);
 
     try {
       const response = await fetch('/api/generate-assistant', {
@@ -116,15 +114,19 @@ export default function Home() {
 
       setFormMessage(`Success! Assistant created with ID: ${result.assistantId}. Redirecting...`);
       setIsSuccess(true);
-      setCreatedAssistantId(result.assistantId);
       console.log("Assistant Creation Response:", result);
 
       // Redirect to the chat page with the new assistant ID
       router.push(`/chat/${result.assistantId}`);
 
-    } catch (error: any) {
+    } catch (error) {
       console.error("Form submission error:", error);
-      setFormMessage(error.message || 'An unexpected error occurred.');
+      // Type check the error
+      if (error instanceof Error) {
+        setFormMessage(error.message);
+      } else {
+        setFormMessage('An unknown error occurred during assistant creation.');
+      }
       setIsSuccess(false);
       setIsLoading(false);
     }
@@ -167,7 +169,7 @@ export default function Home() {
                   <DialogHeader>
                     <DialogTitle className="text-orange-700 dark:text-orange-500">Create Your Demo Assistant</DialogTitle>
                     <DialogDescription>
-                      Tell us a bit about your restaurant, and we'll generate a personalized chat demo.
+                      Tell us a bit about your restaurant, and we&apos;ll generate a personalized chat demo.
                     </DialogDescription>
                   </DialogHeader>
                   <form onSubmit={handleFormSubmit} className="space-y-4 py-4">
