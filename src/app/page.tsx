@@ -271,12 +271,17 @@ export default function Home() {
               {automations.map((automation, index) => (
                 <Dialog key={index}>
                   <DialogTrigger asChild>
-                    <Card className="shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer border border-border hover:border-orange-500 dark:border-border/50 dark:hover:border-orange-500 bg-card">
+                    <Card className="group relative shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-border hover:border-primary dark:border-border/50 dark:hover:border-primary bg-card hover:scale-[1.03] overflow-hidden">
                       <CardHeader>
                         <CardTitle className="text-xl font-semibold text-orange-700 dark:text-orange-500">{automation.title}</CardTitle>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="pb-10 relative">
                         <CardDescription className="text-muted-foreground">{automation.description}</CardDescription>
+                        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-xs text-primary font-semibold flex items-center">
+                            View More <span className="ml-1 text-lg">→</span>
+                          </span>
+                        </div>
                       </CardContent>
                     </Card>
                   </DialogTrigger>
