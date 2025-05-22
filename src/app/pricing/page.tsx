@@ -140,13 +140,13 @@ export default function PricingPage() {
           <div className="flex flex-col items-center text-center max-w-xs mx-auto">
             <MdChatBubbleOutline size={64} className="text-[#222] mb-2" />
             <span className="font-bold text-lg mb-2">Replying to DMs</span>
-            <span className="text-gray-700">They're flipping burgers and flipping tabs. Not replying to "Do you have parking?"</span>
+            <span className="text-gray-700">They&apos;re flipping burgers and flipping tabs. Not replying to &quot;Do you have parking?&quot;</span>
           </div>
           {/* Card 3 */}
           <div className="flex flex-col items-center text-center max-w-xs mx-auto">
             <MdBolt size={64} className="text-[#FD7854] mb-2 rotate-12" />
             <span className="font-bold text-lg mb-2">Remembering regulars orders</span>
-            <span className="text-gray-700">You have regulars. But they're not being tracked, thanked, or incentivized.</span>
+            <span className="text-gray-700">You have regulars. But they&apos;re not being tracked, thanked, or incentivized.</span>
           </div>
         </div>
       </section>
@@ -202,8 +202,8 @@ const faqData = [
     a: "Yes! Our AI voice assistant can pick up calls 24/7, answer common questions, take reservations or orders, and even route urgent calls to your team."
   },
   {
-    q: "Will customers know they're talking to AI?",
-    a: "Not unless you want them to. Our AI is trained to sound human, friendly, and helpful. Most customers assume it's just a helpful team member."
+    q: "Will customers know they&apos;re talking to AI?",
+    a: "Not unless you want them to. Our AI is trained to sound human, friendly, and helpful. Most customers assume it&apos;s just a helpful team member."
   },
   {
     q: "What platforms does Eatly integrate with?",
