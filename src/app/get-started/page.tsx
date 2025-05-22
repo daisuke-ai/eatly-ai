@@ -2,8 +2,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function GetStarted() {
+  const [state, handleSubmit] = useForm("mqaqodan");
+
   return (
     <main className="min-h-screen w-full flex flex-col items-center bg-[#FFF6E5]">
       {/* Header */}
@@ -30,14 +33,40 @@ export default function GetStarted() {
         </p>
         <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col items-center">
           <h2 className="text-lg font-semibold mb-6 text-center">Book Your Free Demo</h2>
-          <form className="w-full flex flex-col gap-4">
-            <input type="text" placeholder="Full name" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-            <input type="text" placeholder="Restaurant Name" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-            <input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-            <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-            <input type="text" placeholder="Country" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-            <Button type="submit" className="bg-[#FD4D2D] hover:bg-orange-700 text-white w-full mt-2">Get Started</Button>
-          </form>
+          {state.succeeded ? (
+            <p className="text-green-600 text-center text-lg">Thanks for joining! We&apos;ll be in touch soon.</p>
+          ) : (
+            <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit} action="https://formspree.io/f/mqaqodan" method="POST">
+              <div>
+                <label htmlFor="fullName" className="block mb-1 font-medium text-gray-700">Full Name</label>
+                <input id="fullName" name="fullName" type="text" required placeholder="e.g. Jane Doe" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                <ValidationError prefix="Full Name" field="fullName" errors={state.errors} />
+              </div>
+              <div>
+                <label htmlFor="restaurantName" className="block mb-1 font-medium text-gray-700">Restaurant Name</label>
+                <input id="restaurantName" name="restaurantName" type="text" required placeholder="e.g. Demo Restaurant" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                <ValidationError prefix="Restaurant Name" field="restaurantName" errors={state.errors} />
+              </div>
+              <div>
+                <label htmlFor="email" className="block mb-1 font-medium text-gray-700">Email Address</label>
+                <input id="email" name="email" type="email" required placeholder="e.g. jane@email.com" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block mb-1 font-medium text-gray-700">Phone Number</label>
+                <input id="phone" name="phone" type="tel" required placeholder="e.g. +1 555 123 4567" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+              </div>
+              <div>
+                <label htmlFor="country" className="block mb-1 font-medium text-gray-700">Country</label>
+                <input id="country" name="country" type="text" required placeholder="e.g. United States" className="w-full px-4 py-3 rounded-md bg-[#F6F6F6] border border-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                <ValidationError prefix="Country" field="country" errors={state.errors} />
+              </div>
+              <Button type="submit" className="bg-[#FD4D2D] hover:bg-orange-700 text-white w-full mt-2" disabled={state.submitting}>
+                {state.submitting ? 'Submitting...' : 'Get Started'}
+              </Button>
+            </form>
+          )}
         </div>
       </section>
     </main>
