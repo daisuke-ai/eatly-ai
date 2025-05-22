@@ -136,13 +136,14 @@ export default function ChatPage() {
               </div>
             ))}
             {isLoading && (
-                <div className="flex justify-start items-center gap-2 pl-10"> {/* Align with assistant messages */}
-                    <Avatar className="h-8 w-8">
+                <div className="flex justify-start items-end gap-2"> {/* Align with assistant messages, items-end for avatar alignment */}
+                    <Avatar className="h-8 w-8 self-end"> {/* self-end to align with bottom of bubble */}
                         <AvatarFallback className="bg-primary/20 text-primary text-xs">AI</AvatarFallback>
                     </Avatar>
-                    <div className="p-3 rounded-xl bg-muted text-muted-foreground italic flex items-center gap-2">
+                    {/* Typing indicator styled as an assistant bubble */}
+                    <div className="p-3 rounded-xl bg-muted text-muted-foreground shadow-sm flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
-                        Thinking...
+                        <span className="text-sm italic">Typing...</span>
                     </div>
                 </div>
             )}
