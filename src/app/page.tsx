@@ -17,73 +17,18 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Script from 'next/script';
 import Image from 'next/image';
 
-const automations = [
-  {
-    title: "Marketing CRM",
-    description: "Manage customer relationships and marketing campaigns efficiently.",
-    icon: "/eatly-img/crm.png"
-  },
-  {
-    title: "Database Building",
-    description: "Automated tools to build and maintain your customer database.",
-    icon: "/eatly-img/Loyalty Program Dashboard Illustration Placeholder.png"
-  },
-  {
-    title: "AI Social Media Agents",
-    description: "Engage customers on Facebook, Instagram, and WhatsApp.",
-    icon: "/eatly-img/Phone Illustration Placeholder.png"
-  },
-  {
-    title: "SMS Automation",
-    description: "Send automated SMS messages for promotions and reminders.",
-    icon: "/eatly-img/Phone SMS Illustration Placeholder.png"
-  },
-  {
-    title: "Email Automations",
-    description: "Automate email marketing campaigns and notifications.",
-    icon: "/eatly-img/Browser Email Illustration Placeholder.png"
-  },
-  {
-    title: "Regulars Management",
-    description: "Identify and reward your loyal customers automatically.",
-    icon: "/eatly-img/badge.png"
-  },
-  {
-    title: "Google Reviews Management",
-    description: "Monitor and respond to Google reviews seamlessly.",
-    icon: "/eatly-img/Phone Review Illustration Placeholder.png"
-  },
-  {
-    title: "Online Order Booking",
-    description: "Streamline the online ordering process for your customers.",
-    icon: "/eatly-img/Marketing Dashboard Illustration Placeholder.png"
-  },
-  {
-    title: "Voice Agents for Calls",
-    description: "Handle incoming calls with intelligent AI voice agents.",
-    icon: "/eatly-img/chef-illustration.png"
-  },
-  {
-    title: "Loyalty Program",
-    description: "Implement and manage a custom loyalty program.",
-    icon: "/eatly-img/badge.png"
-  },
-];
-
 export default function Home() {
   const router = useRouter();
-  const [restaurantName, setRestaurantName] = useState("Demo Restaurant");
-  const [cuisineType, setCuisineType] = useState("Pizza, Italian");
-  const [menuItems, setMenuItems] = useState("Pizza Margherita, Pasta Carbonara");
-  const [website, setWebsite] = useState("https://demo-restaurant.com");
+  const [restaurantName, setRestaurantName] = useState("");
+  const [cuisineType, setCuisineType] = useState("");
+  const [menuItems, setMenuItems] = useState("");
+  const [website, setWebsite] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [formMessage, setFormMessage] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
@@ -122,7 +67,7 @@ export default function Home() {
         <header className="w-full bg-white border-b border-border/40">
           <div className="container mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center">
-              <span className="text-lg font-semibold text-orange-600">eatly.ai</span>
+              <Link href="/" className="text-lg font-semibold text-orange-600">eatly.ai</Link>
             </div>
             <div className="flex items-center gap-8">
               <Link href="/pricing" className="text-base text-gray-700 hover:text-orange-600 transition-colors">Pricing</Link>
@@ -158,7 +103,7 @@ export default function Home() {
         <section className="w-full pb-16 lg:pb-24">
           <div className="container mx-auto px-4 text-center">
             <p className="text-6xl font-semibold italic mb-8 text-gray-900 dark:text-gray-100">
-              "It&apos;s like having your front desk available 24/7—<br/>without hiring anyone."
+              &quot;It&apos;s like having your front desk available 24/7—<br/>without hiring anyone.&quot;
             </p>
             <p className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8">
               See how Eatly.ai handles calls—like a real team member
@@ -228,7 +173,7 @@ export default function Home() {
                   <CardDescription>
                     Reply to DMs instantly, take orders, and turn story replies into conversations that convert—automatically.
                   </CardDescription>
-                  <div className="flex items-center mt-4 text-orange-600 dark:text-orange-400 font-semibold">
+                  <div className="flex items-center mt-4 text-orange-600 dark:text-orange-400 font-semibold cursor-pointer" onClick={() => setOpenDemoModal(true)}>
                     Try now <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
                   </div>
                 </CardContent>
@@ -246,7 +191,7 @@ export default function Home() {
                   <CardDescription>
                     Handle Messenger inquiries 24/7 with AI that responds, books, and collects customer info while you focus on your kitchen.
                   </CardDescription>
-                   <div className="flex items-center mt-4 text-orange-600 dark:text-orange-400 font-semibold">
+                   <div className="flex items-center mt-4 text-orange-600 dark:text-orange-400 font-semibold cursor-pointer" onClick={() => setOpenDemoModal(true)}>
                     Try now <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
                   </div>
                 </CardContent>
@@ -264,7 +209,7 @@ export default function Home() {
                   <CardDescription>
                     Engage with customers on the world&apos;s most-used messaging app. Confirm reservations, answer questions, and build loyalty—on autopilot.
                   </CardDescription>
-                  <div className="flex items-center mt-4 text-orange-600 dark:text-orange-400 font-semibold">
+                  <div className="flex items-center mt-4 text-orange-600 dark:text-orange-400 font-semibold cursor-pointer" onClick={() => setOpenDemoModal(true)}>
                     Try now <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
                   </div>
                 </CardContent>
@@ -334,7 +279,7 @@ export default function Home() {
           <div className="relative flex flex-col items-center" style={{ minHeight: '500px' }}>
             {/* Quote Card */}
             <div className="bg-[#F5FAFF] rounded-lg shadow-lg px-24 py-20 flex flex-col items-center relative z-0" style={{ transform: 'rotate(-4deg)' }}>
-              <p className="text-[64px] font-extrabold italic text-gray-900 text-center mb-4">“Your restaurants best employee”</p>
+              <p className="text-[64px] font-extrabold italic text-gray-900 text-center mb-4">&quot;Your restaurants best employee&quot;</p>
               <p className="text-[64px] font-medium text-gray-900 text-center">Forbes</p>
             </div>
             {/* Pushpin Image */}
@@ -436,10 +381,22 @@ export default function Home() {
               <DialogDescription>Fill in your restaurant details to try Eatly.ai chat assistant.</DialogDescription>
             </DialogHeader>
             <form className="flex flex-col gap-4" onSubmit={handleDemoFormSubmit}>
-              <Input placeholder="Restaurant Name" value={restaurantName} onChange={e => setRestaurantName(e.target.value)} required />
-              <Input placeholder="Cuisine Type" value={cuisineType} onChange={e => setCuisineType(e.target.value)} required />
-              <Input placeholder="Menu Items (optional)" value={menuItems} onChange={e => setMenuItems(e.target.value)} />
-              <Input placeholder="Website (optional)" value={website} onChange={e => setWebsite(e.target.value)} />
+              <div>
+                <label className="block mb-1 font-medium text-gray-700">Restaurant Name</label>
+                <Input placeholder="e.g. Demo Restaurant" value={restaurantName} onChange={e => setRestaurantName(e.target.value)} required className="placeholder-gray-400" />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium text-gray-700">Cuisine Type <span className="text-gray-400">(optional)</span></label>
+                <Input placeholder="e.g. Pizza, Italian" value={cuisineType} onChange={e => setCuisineType(e.target.value)} className="placeholder-gray-400" />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium text-gray-700">Menu Items</label>
+                <Input placeholder="e.g. Pizza Margherita, Pasta Carbonara" value={menuItems} onChange={e => setMenuItems(e.target.value)} className="placeholder-gray-400" />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium text-gray-700">Website <span className="text-gray-400">(optional)</span></label>
+                <Input placeholder="e.g. https://demo-restaurant.com" value={website} onChange={e => setWebsite(e.target.value)} className="placeholder-gray-400" />
+              </div>
               <Button type="submit" className="bg-orange-600 text-white" disabled={isLoading}>{isLoading ? 'Generating...' : 'Generate Chat'}</Button>
               {formMessage && (
                 <div className={`text-sm mt-2 flex items-center gap-2 ${isSuccess ? 'text-green-600' : 'text-red-600'}`}>

@@ -70,7 +70,7 @@ export default function PricingPage() {
       <header className="w-full bg-white border-b border-border/40">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center">
-            <span className="text-lg font-semibold text-orange-600">eatly.ai</span>
+            <Link href="/" className="text-lg font-semibold text-orange-600">eatly.ai</Link>
           </div>
           <div className="flex items-center gap-8">
             <Link href="/pricing" className="text-base text-gray-700 hover:text-orange-600 transition-colors">Pricing</Link>
@@ -91,7 +91,7 @@ export default function PricingPage() {
           </h1>
           <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch w-full max-w-5xl mx-auto relative">
             <span className="absolute -top-8 left-0 text-gray-500 text-base text-left">Price in USD</span>
-            {plans.map((plan, idx) => (
+            {plans.map((plan) => (
               <div
                 key={plan.title}
                 className={`flex flex-col items-center bg-[#F6F5F4] rounded-xl shadow-md px-8 py-10 w-full md:w-96 relative ${plan.popular ? 'border-4 border-green-400' : ''}`}
@@ -109,8 +109,8 @@ export default function PricingPage() {
                   <Link href="/get-started">Get started</Link>
                 </Button>
                 <ul className="text-left text-gray-800 text-base space-y-2 w-full">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
                       <span className="mt-1">•</span> {feature}
                     </li>
                   ))}

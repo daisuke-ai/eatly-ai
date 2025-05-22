@@ -23,10 +23,10 @@ export default function GetStarted() {
       {/* Main Content */}
       <section className="flex flex-col items-center justify-center w-full flex-1 py-24">
         <h1 style={{ fontSize: 64, fontWeight: 700, fontFamily: 'Segoe UI, sans-serif' }} className="text-center text-gray-900 mb-4">
-          We'll Install Eatly for You—Up and Running in 48 Hours
+          We&apos;ll Install Eatly for You—Up and Running in 48 Hours
         </h1>
         <p style={{ fontSize: 34, fontWeight: 400, fontFamily: 'Segoe UI, sans-serif' }} className="text-center text-gray-500 mb-12 max-w-2xl">
-          From onboarding to activation, we'll set everything up—fast, simple, and done for you.
+          From onboarding to activation, we&apos;ll set everything up—fast, simple, and done for you.
         </p>
         <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col items-center">
           <h2 className="text-lg font-semibold mb-6 text-center">Book Your Free Demo</h2>
