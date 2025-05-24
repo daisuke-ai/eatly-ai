@@ -202,8 +202,8 @@ const faqData = [
     a: "Yes! Our AI voice assistant can pick up calls 24/7, answer common questions, take reservations or orders, and even route urgent calls to your team."
   },
   {
-    q: "Will customers know they&apos;re talking to AI?",
-    a: "Not unless you want them to. Our AI is trained to sound human, friendly, and helpful. Most customers assume it&apos;s just a helpful team member."
+    q: "Will customers know they're talking to AI?",
+    a: "Not unless you want them to. Our AI is trained to sound human, friendly, and helpful. Most customers assume it's just a helpful team member."
   },
   {
     q: "What platforms does Eatly integrate with?",
@@ -227,7 +227,7 @@ const faqData = [
   },
   {
     q: "How much does it cost?",
-    a: "We offer three simple plans starting at $99/month. You can upgrade anytime as your restaurant grows. [See Pricing →]"
+    a: "We offer three simple plans starting at $99/month. You can upgrade anytime as your restaurant grows."
   },
 ];
 
