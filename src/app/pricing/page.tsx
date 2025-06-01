@@ -84,8 +84,8 @@ export default function PricingPage() {
       <section className="w-full flex flex-col items-center py-24 bg-white dark:bg-black bg-[radial-gradient(#0000001a_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff1a_1px,transparent_1px)] bg-[size:16px_16px]">
         <div className="container mx-auto px-4 text-center">
           <h1
-            className="font-extrabold mb-4 text-gray-900 dark:text-gray-100 mx-auto"
-            style={{ fontSize: '72px'}}
+            className="font-extrabold mb-8 sm:mb-12 text-gray-900 dark:text-gray-100 mx-auto text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+            style={{ /* fontSize removed for responsive classes */}}
           >
             One AI for your entire restaurant marketing
           </h1>

@@ -8,6 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"; // For scrollable chat
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"; // For errors
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"; // Import Avatar
 import { Loader2 } from 'lucide-react'; // Import Loader icon
+import Link from 'next/link';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -90,9 +91,31 @@ export default function ChatPage() {
 
   return (
     // Outer container for padding and centering
-    <div className="p-4 md:p-8 h-screen bg-background">
-        {/* Inner chat container with max-width and centering */}
-        <div className="flex flex-col h-full max-w-3xl mx-auto bg-card border rounded-lg shadow-lg overflow-hidden">
+    <div className="min-h-screen w-full flex flex-col bg-white dark:bg-black">
+      {/* Header (copied from homepage) */}
+      <header className="w-full bg-white border-b border-border/40">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center">
+            <Link href="/" className="text-lg font-semibold text-orange-600">eatly.ai</Link>
+          </div>
+          <div className="flex items-center gap-8">
+            <Link href="/pricing" className="text-base text-gray-700 hover:text-orange-600 transition-colors">Pricing</Link>
+            <Link href="/get-started">
+              <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-semibold">Get started</Button>
+            </Link>
+          </div>
+        </div>
+      </header>
+      {/* Demo Title */}
+      <div className="w-full bg-white dark:bg-black py-10 border-b border-border/40">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-center text-gray-900 dark:text-gray-100 max-w-4xl mx-auto px-4">
+          Free 15-Minute Demo to Discover How Eatly Automates Your Restaurant Marketing
+        </h1>
+      </div>
+      {/* Chat Container */}
+      <div className="flex-1 flex items-center justify-center py-8 px-4 md:px-8">
+        {/* Inner chat container with max-w and centering */}
+        <div className="flex flex-col h-[800px] max-w-3xl w-full bg-card border rounded-lg shadow-lg overflow-hidden">
 
       {/* Header (Optional: could make sticky) */}
       <header className="border-b p-3 bg-card flex-shrink-0">
@@ -172,6 +195,7 @@ export default function ChatPage() {
       </form>
       </div> { /* End Input Area */}
     </div> { /* End inner chat container */}
-  </div> /* End outer padding container */
- )
+      </div> {/* End chat container wrapper */}
+    </div> /* End outer container */
+  )
 } 

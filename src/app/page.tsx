@@ -104,20 +104,19 @@ export default function Home() {
             <p className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8">
               See how Eatly.ai handles calls—like a real team member
             </p>
-            {/* Video Player/Play Button */}
+            {/* Cloudinary Video Embed */}
             <div className="mt-8 flex justify-center">
-              {/* Placeholder for Video Preview Image */}
-              <div className="relative w-full max-w-4xl aspect-video bg-gray-300 dark:bg-gray-700 rounded-xl flex items-center justify-center">
-                {/* You can replace this div with a next/image component for a video thumbnail */}
-                <div className="text-gray-600 dark:text-gray-300 text-lg">Video Preview Placeholder</div>
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                </div>
+              <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden">
+                <iframe
+                  src="https://player.cloudinary.com/embed/?cloud_name=di7dvcnax&public_id=web_asset_1_y4foi5&profile=cld-default"
+                  width="640"
+                  height="360"
+                  style={{ height: 'auto', width: '100%', aspectRatio: '640 / 360', border: 0 }}
+                  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  frameBorder="0"
+                  title="Eatly.ai Demo Video"
+                />
               </div>
             </div>
           </div>
