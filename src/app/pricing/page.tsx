@@ -9,7 +9,7 @@ const plans = [
   {
     icon: '/eatly-img/18.png',
     title: 'Starter',
-    price: '$99',
+    price: '$249',
     period: '/per month',
     description: 'For solo restaurants getting started with automation.',
     features: [
@@ -27,7 +27,7 @@ const plans = [
   {
     icon: '/eatly-img/17.png',
     title: 'Growth',
-    price: '$200',
+    price: '$349',
     period: '/per month',
     description: 'For growing restaurants ready to scale marketing and retention.',
     features: [
@@ -47,7 +47,7 @@ const plans = [
   {
     icon: '/eatly-img/16.png',
     title: 'Pro',
-    price: '$300',
+    price: '$899',
     period: '/per month',
     description: 'For growing businesses to streamline teamwork',
     features: [
